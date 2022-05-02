@@ -1,13 +1,15 @@
-import platform, os
+M = '\x1b[1;91m'
+import os,requests
+xr = requests.get("http://ip-api.com/json/").json()
+try:
+	fc = xr["country"]
+except KeyError:
+	print('%s\nNO INTERNET CONNECTION\n'%(M))
+	exit()
 
-def __main__():
-  try:
-    __import__('Instagram').__masuk__()
-  except Exception as e:
-    exit(f"\x1b[1;97m[\x1b[1;91m!\x1b[1;97m]\x1b[1;91m {e}")
-
-if __name__=='__main__':
-  if '64bit' in str(platform.architecture()):
-    os.system('git pull');__main__()
-  else:
-    exit("\x1b[1;97m[\x1b[1;91m!\x1b[1;97m]\x1b[1;91m Gunakan Perangkat 64bit")
+if __name__ == "__main__":
+	os.system("git pull")
+	if "Nigeria" == fc:
+		__import__("ZETHON").main()
+	else:
+		__import__("ZETHON").main()
